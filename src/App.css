@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* app */
+#root {
+  z-index: 0;
+}
+.App {
+  background-color: hwb(0 89% 4%);
+  font-size: 16px;
+  overflow-y: scroll;
+}
+/* sectio card */
+
+.score {
+  background-color: hwb(0 89% 4%);
+}
+
+/*  */
+.replay-text,
+.score-text {
+  color: hsl(238, 40%, 52%);
+  font-weight: 400;
+}
+
+/*  */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.modal {
+  border: 1px solid red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-message {
+  z-index: 100;
+}
