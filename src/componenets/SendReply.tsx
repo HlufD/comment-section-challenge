@@ -1,12 +1,12 @@
-import React from "react";
 import { Avatar } from "./Avatar";
-interface ISendProps {
-  to?: string;
-}
 
-export function SendMessage({ to = "" }: ISendProps) {
+interface ISendRply {
+  to: string;
+  eidt?: boolean;
+}
+export function SendReply({ to }: ISendRply) {
   return (
-    <div className="md:p-6 w-80  mx-auto mt-4 mb:3 p-4 md:px-2 rounded-lg bg-white shadow-md md:w-1/2 md:flex  md:justify-around items-start">
+    <section className="mb-3 w-80  mx-auto   p-4 md:px-4 rounded-lg bg-white shadow-md md:w-11/12 md:flex md:ml-4">
       <div className="hidden md:block">
         <Avatar avatar="./images/avatars/image-juliusomo.png" />
       </div>
@@ -24,9 +24,9 @@ export function SendMessage({ to = "" }: ISendProps) {
           <Avatar avatar="./images/avatars/image-juliusomo.png" />
         </div>
         <button className="md:h-10 uppercase  text-white font-bold bg-blue-800 text-sm px-6 rounded-md hover:opacity-50 transition-all duration-75">
-          {to ? "reply" : "send"}
+          reply
         </button>
       </div>
-    </div>
+    </section>
   );
 }

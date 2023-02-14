@@ -20,6 +20,7 @@ function App() {
             {comment.replies?.length !== 0 ? (
               <div className="reply md:ml-96 mt-4   md:border-l border-gray-300  md:w-1/2 mx-auto md:flex md:flex-col md:justify-center">
                 <ReplyMessage
+                  setOpen={setOpen}
                   replies={comment.replies}
                   user={currentUser.username}
                 />
@@ -29,7 +30,7 @@ function App() {
         );
       })}
       <SendMessage />
-      {open && <Modal />}
+      {open && <Modal setOpen={setOpen} />}
     </div>
   );
 }

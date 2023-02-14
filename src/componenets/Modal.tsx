@@ -1,6 +1,10 @@
 import ReactDOM from "react-dom";
 
-export function Modal() {
+interface IModalProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Modal({ setOpen }: IModalProps) {
   return ReactDOM.createPortal(
     <div className="modal">
       <div className="overlay"></div>
@@ -15,7 +19,10 @@ export function Modal() {
           </p>
         </div>
         <div className="flex justify-between rounded-md items-center mt-4">
-          <button className="uppercase py-2 px-5 rounded-md bg-slate-600 text-white">
+          <button
+            onClick={() => setOpen(false)}
+            className="uppercase py-2 px-5 rounded-md bg-slate-600 text-white"
+          >
             No, cancel
           </button>
           <button className="uppercase py-2 px-5 bg-red-500 text-white rounded-md">

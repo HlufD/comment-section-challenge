@@ -1,8 +1,5 @@
-import { Avatar } from "./Avatar";
-import { Delete } from "./Delete";
-import { Edit } from "./Edit";
-import { Replay } from "./Replay";
-import { Score } from "./Score";
+import React from "react";
+import { Replies } from "./Replies";
 
 interface IUser {
   image: {
@@ -23,62 +20,17 @@ interface IRplies {
 interface IReplayMessage {
   replies: IRplies[];
   user: string;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function ReplyMessage({ replies, user }: IReplayMessage) {
+export function ReplyMessage({ replies, user, setOpen }: IReplayMessage) {
   return (
     <>
-      {replies.map((reply) => {
+      {replies.map((singleReply) => {
         return (
-          <section
-            key={reply.id}
-            className=" mb-3 w-80  mx-auto   p-4 md:px-4 rounded-lg bg-white shadow-md md:w-11/12 md:flex md:ml-4"
-          >
-            <div
-              className="hidden md:block
-              "
-            >
-              <Score score={reply.score} />
-            </div>
-            <main className=" md:w-11/12 px-2 md:ml-4">
-              <div className="flex  items-center md:justify-between ">
-                <div className="flex  items-center ">
-                  <Avatar avatar={reply.user.image.png} />
-                  <p className="ml-3 font-bold">{reply.user.username}</p>
-                  <p className="ml-3 text-gray-500">{reply.createdAt}</p>
-                </div>
-                <div className="hidden md:flex md:justify-around">
-                  {user === reply.user.username ? (
-                    <>
-                      <Delete />
-                      <Edit />
-                    </>
-                  ) : (
-                    <Replay />
-                  )}
-                </div>
-              </div>
-              <div>
-                <p className="text-gray-500 mt-2">
-                  <span className="text-indigo-700 font-bold mr-1">
-                    @{reply.replyingTo}
-                  </span>
-                  {reply.content}
-                </p>
-              </div>
-            </main>
-            <footer className="flex  items-center justify-between  mt-3 md:hidden">
-              <Score score={reply.score} />
-              {user === reply.user.username ? (
-                <>
-                  <Delete />
-                  <Edit />
-                </>
-              ) : (
-                <Replay />
-              )}
-            </footer>
-          </section>
+          <React.Fragment key={singleReply.id}>
+            <Replies singleReply={singleReply} user={user} setOpen={setOpen} />
+          </React.Fragment>
         );
       })}
     </>

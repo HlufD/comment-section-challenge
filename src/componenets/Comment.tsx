@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Avatar } from "./Avatar";
 import { Replay } from "./Replay";
 import { Score } from "./Score";
-import { ReplyMessage } from "./ReplyMessage";
+import { SendMessage } from "./SendMessage";
+
 interface IUser {
   image: {
     png: string;
@@ -33,6 +35,8 @@ interface IComment {
 }
 
 export function Comment({ comment }: IComment) {
+  const [reply, setReply] = useState(false);
+
   return (
     <>
       <section
@@ -53,7 +57,7 @@ export function Comment({ comment }: IComment) {
               <p className="ml-3 text-gray-500">{comment.createdAt}</p>
             </div>
             <div className="hidden md:block">
-              <Replay />
+              <Replay setRply={setReply} reply={reply} />
             </div>
           </div>
           <div>
@@ -62,9 +66,10 @@ export function Comment({ comment }: IComment) {
         </main>
         <footer className="flex  items-center justify-between  mt-3 md:hidden">
           <Score score={comment.score} />
-          <Replay />
+          <Replay setRply={setReply} reply={reply} />
         </footer>
       </section>
+      {reply && <SendMessage to={`@${comment.user.username}`} />}
     </>
   );
 }

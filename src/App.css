@@ -9,14 +9,14 @@
   z-index: 0;
 }
 .App {
-  background-color: hwb(0 89% 4%);
+  background-color: hsl(223, 19%, 93%);
   font-size: 16px;
   overflow-y: scroll;
 }
 /* sectio card */
 
 .score {
-  background-color: hwb(0 89% 4%);
+  background-color: hsl(223, 19%, 93%);
 }
 
 /*  */
