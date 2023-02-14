@@ -18,7 +18,7 @@ function App() {
           <React.Fragment key={comment.id}>
             <Comment comment={comment} />
             {comment.replies?.length !== 0 ? (
-              <div className="pl-12">
+              <div className="md:pl-12">
                 <div className="reply  mt-4 md:ml-80  md:border-l border-gray-300  md:w-1/2 mx-auto md:flex md:flex-col md:justify-center">
                   <ReplyMessage
                     setOpen={setOpen}
