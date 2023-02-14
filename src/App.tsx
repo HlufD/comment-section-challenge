@@ -18,12 +18,14 @@ function App() {
           <React.Fragment key={comment.id}>
             <Comment comment={comment} />
             {comment.replies?.length !== 0 ? (
-              <div className="reply md:ml-96 mt-4   md:border-l border-gray-300  md:w-1/2 mx-auto md:flex md:flex-col md:justify-center">
-                <ReplyMessage
-                  setOpen={setOpen}
-                  replies={comment.replies}
-                  user={currentUser.username}
-                />
+              <div className="pl-12">
+                <div className="reply  mt-4 md:ml-80  md:border-l border-gray-300  md:w-1/2 mx-auto md:flex md:flex-col md:justify-center">
+                  <ReplyMessage
+                    setOpen={setOpen}
+                    replies={comment.replies}
+                    user={currentUser.username}
+                  />
+                </div>
               </div>
             ) : null}
           </React.Fragment>

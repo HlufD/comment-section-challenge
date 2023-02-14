@@ -13,7 +13,7 @@ export function SendMessage({ to = "" }: ISendProps) {
       <div className="w-12/12 md:w-11/12 md:ml-4">
         <textarea
           cols={34}
-          rows={4}
+          rows={3}
           className="rounded-md p-3 border border-rose-100 text-gray-500 outline-none w-11/12"
         >
           {to ? `${to}` : "Add your comment..."}
